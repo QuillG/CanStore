@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>The Can Store</title>
+  <link href="https://fonts.googleapis.com/css?family=Cherry+Swash|Raleway" rel="stylesheet">
+  <link href="can-style.css" rel="stylesheet">
+  <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+  <header>
+    <h1>The Can Store</h1>
+  </header>
+  <div>
+    <aside>
+      <form>
+        <div>
+          <label for="category">Choose a category:</label>
+          <select id="category">
+            <option selected>All</option>
+            <option>Vegetables</option>
+            <option>Meat</option>
+            <option>Soup</option>
+          </select>
+        </div>
+        <div>
+          <label for="searchTerm">Enter search term:</label>
+          <input type="text" id="searchTerm" placeholder="e.g. beans">
+        </div>
+        <div>
+          <button>Filter results</button>
+        </div>
+      </form>
+    </aside>
+    <main>
+
+    </main>
+  </div>
+  <footer>
+    <p><a href="https://github.com/NTT2023/TP_Canstore">TP BOUTIQUE (AJAX – JSON)</a>
+
+      A partir des fichiers du repository, vous êtes chargé de :<br>
+    <ol>
+      <li>Après lecture du code, remplacer les commentaires du JS pour une meilleure compréhension (plus succints et en français) puis adapter la page html pour le public
+        français. La boutique s’appellera : "Au jardin en boite".</li>
+      <li> La méthode d’accès aux images est : function fetchBlob(product). Supprimer cette fonction puis utiliser
+        l’url de l’image transmise par le JSON pour paramétrer l’attribut « src » des images dans la function
+        showProduct(objectURL, product) qui ne prendra donc plus qu’un argument « product ».</li>
+      <li> Adapter le script pour faire fonctionner la page de présentation des produits avec le fichier JSON joint : «
+        produits.json ». La loi Française oblige le vendeur à afficher le « nutri-score » du produit. Mettre en œuvre cet ajout.
+      </li>
+      <li>Le client souhaite un nouveau look plus moderne, nature et une page responsive…</li>
+    </ol>
+    </p>
+  </footer>
+  <script src="can-script.js"></script>
+</body>
+
+</html>
