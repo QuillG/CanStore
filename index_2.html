@@ -1,38 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Can Store</title>
+    <title>Au jardin en boite</title>
     <link href="https://fonts.googleapis.com/css?family=Cherry+Swash|Raleway" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
-<body styles="height:20000px">
+<body>
 
     <nav class="navbar fixed-top navbar-light bg-warning">
-        <div class="container">
-        <a 
-            class="navbar-brand" 
-            href="#"
-                <img src="icons/Can.png" class="d-inline-block align-top"  width="30" height="30" alt="">
-        Au jardin en boite
+        <div class="container justify-content-start col-6">
+        <a class="navbar-brand">
+        <img src="icons/Can.png" class="d-inline-block align-text-top" width="30" height="30" alt="">
+         Au jardin en boite
+        </a>
+        </div>
+        <div class="container justify-content-end gap-5 col-6">
+        <form class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <select class="form-select" name="categorie">
+                <option selected value="0">Categorie: tous</option>
+                <option value="1">Légumes</option>
+                <option value="2">Soupes</option>
+                <option value="3">Viandes</option>
+            </select>
+            <select class="form-select" name="nutri">
+                <option selected value="0">Nutriscore: tous</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+                <option value="E">E</option>
+                <option value="F">F</option>
+              </select>
+                <input class="form-control" type="text" id="searchTerm" placeholder="Rechercher vos boites!" list="listeValeurs" name="searchTerm">
+                <datalist id="listeValeurs">
+                </datalist>
+                
+                    <button class="btn btn-outline-dark" id="btn1">Sup</button>       
+        </form>
+        <a class="navbar-brand" href="#">
+            <img src="icons/panier.png"class="d-inline-block align-text-top" width="30" height="30" alt="">
         </a>
         
-        <form class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <select class="form-select" id="category">
-                    <option selected>categorie : tout</option>
-                    <option>Legumes</option>
-                    <option>Viande</option>
-                    <option>Soupe</option>
-                  </select>
-                <input class="form-control" type="text" id="searchTerm" placeholder="Rechercher vos boites!">
-                  <button class="btn btn-outline-dark">OK</button>       
-        </form>
+
+
         </div>  
     </nav>
+    <div class="container mt-5 d-grid"></div>
 
-    <main class="container d-flex flex-wrap">
+    <main class="container mt-5 d-flex flex-wrap">
 
     </main>
 
