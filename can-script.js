@@ -13,7 +13,7 @@ document.forms[0].searchTerm.addEventListener("change", function() {
 
 
 // sur le click
-document.querySelector('button').addEventListener(
+document.getElementById('btn1').addEventListener(
   'click', function (event) {
     event.preventDefault();
     document.forms[0].reset()
