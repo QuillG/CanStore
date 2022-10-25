@@ -21,6 +21,7 @@ document.getElementById('btn1').addEventListener(
   });
 
 
+
 //recup données
 function addDonnee() {
   fetch('produits.json').then(function (response) {
@@ -117,7 +118,22 @@ function showProduct(finalGroup) {
       var section = document.createElement('div');
       section.setAttribute('class', product.type);
       section.classList.add("card");
+      section.classList.add("d-grid");      
       section.classList.add("text-center");
+      section.classList.add("border-warning")
+      section.classList.add("mb-5")
+      section.classList.add("pb-5")
+      var gap = document.createElement('div');
+      gap.setAttribute('class', product.type);
+      gap.classList.add("col-1")
+      gap.classList.add("row")
+      var bouton = document.createElement('button');
+      bouton.setAttribute('class', product.type);
+      bouton.classList.add("btn")
+      bouton.classList.add("btn-outline-dark")
+      bouton.classList.add("btn-lg")
+      bouton.classList.add("align-items-end")
+      bouton.textContent = "Acheter"
       var heading = document.createElement('div');
       heading.textContent = product.nom.replace(product.nom.charAt(0), product.nom.charAt(0).toUpperCase());
       heading.className = 'card-title'; 
@@ -126,7 +142,7 @@ function showProduct(finalGroup) {
       var para = document.createElement('p');
       para.textContent = product.prix.toFixed(2) +"€";
       var nutri = document.createElement('span');
-      nutri.textContent = product.nutriscore;
+      nutri.textContent = "Nutriscore : " + product.nutriscore;
       var image = document.createElement('img');
       image.className = 'card-img-top'; 
       image.src = "images/" + product.image;
@@ -137,7 +153,9 @@ function showProduct(finalGroup) {
       foot.appendChild(para);
       foot.appendChild(nutri);
       section.appendChild(image);
+      section.appendChild(bouton)  
       main.appendChild(section);
+      main.appendChild(gap)
     });
   }
 }
