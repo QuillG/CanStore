@@ -13,33 +13,37 @@
     <nav class="navbar fixed-top navbar-light bg-warning col-12">
         <div class="container-fluid">
             <!-- Premiere partie de la navbar (titre / logo) -->
-            <div class="container justify-content-start col-6">   
-            <a class="navbar-brand justify-content-start">
-            <img src="icons/Can.png" class="d-inline-block align-text-top" width="30" height="30" alt="">
+            <div class="container justify-content-start col">   
+            <a class="navbar-brand">
+            <img src="icons/Can.png" class="d-inline-block align-text-top1" width="30" height="30" alt="">
             Au jardin de Quentin
             </a>
+            
             </div>
             <!-- deuxieme partie de la navbar (panier) -->
-            <div class="d-grid gap-2 d-flex justify-content-end col-6">
+            <div class="d-grid gap-2 d-flex justify-content-md-end justify-content-start col">
                 <button id="btn2" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 <img src="icons/Loupe.png" class="d-inline-block align-text-center" width="25" height="25" alt=""></button>
             <a class="navbar-brand justify-content-end" href="#">
+            <div class="gap-2 d-flex">
                 <img src="icons/panier.png"class="d-inline-block align-text-top" width="30" height="30" alt="">
+                <p class="text-danger">6</p>
+            </div>
             </a>
             </div> 
         </div> 
     </nav>
     <div class="collapse" id="navbarToggleExternalContent">
         <div class="bg-dark p-5 mt-5">
-            <form class="gap-2 d-flex align-content-end">
-                <select class="form-select" name="categorie">
-                    <option selected value="0">Categorie: tous</option>
+            <form class="gap-2 d-sm-flex d-md-flex flex-sm-wrap flex-md-nowrap" name="recherche">
+                <select class="form-select m-2" name="categorie">
+                    <option selected value="0">Categorie: toute</option>
                     <option value="1">Légumes</option>
                     <option value="2">Soupes</option>
                     <option value="3">Viandes</option>
                 </select>
-                <select class="form-select" name="nutri">
+                <select class="form-select m-2" name="nutri">
                     <option selected value="0">Nutriscore: tous</option>
                     <option value="A">A</option>
                     <option value="B">B</option>
@@ -48,14 +52,14 @@
                     <option value="E">E</option>
                     <option value="F">F</option>
                 </select>
-                <input class="form-control" type="text" id="searchTerm" placeholder="Rechercher vos boites!" list="listeValeurs" name="searchTerm">
+                <input class="form-control m-2" type="text" id="searchTerm" placeholder="Rechercher vos boites!" list="listeValeurs" name="searchTerm">
                 <datalist id="listeValeurs">
                 </datalist>               
-                <button class="btn btn-outline-warning" id="btn1">Sup</button>       
+                <!-- <button class="btn btn-outline-warning" id="btn1">Sup</button>        -->
     </form>
         </div>
       </div>
-    <div class="container mt-3 d-grid"></div>
+    <div class="container mt-5 d-grid"></div>
 
     <main class="container justify-content-center mt-5 d-flex flex-wrap">
 
@@ -63,5 +67,6 @@
 
 
     <script src="can-script.js"></script>
+    
 </body>
 </html>

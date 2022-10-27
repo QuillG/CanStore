@@ -7,18 +7,22 @@ document.forms[0].categorie.addEventListener("change", function() {
 document.forms[0].nutri.addEventListener("change", function() {
     addDonnee();
 });
-document.forms[0].searchTerm.addEventListener("change", function() {
-      addDonnee();
+document.forms[0].searchTerm.addEventListener("keypress", function(e) {
+  if (e.keyCode === 13) {
+    addDonnee();
+    e.preventDefault();
+    
+  }     
 });
 
 
 // sur le click
-document.getElementById('btn1').addEventListener(
-  'click', function (event) {
-    event.preventDefault();
-    document.forms[0].reset()
-    addDonnee();
-  });
+// document.getElementById('btn1').addEventListener(
+//   'click', function (event) {
+//     event.preventDefault();
+//     document.forms.recherche.reset()
+//     addDonnee();
+//   });
 
 
 
@@ -121,18 +125,15 @@ function showProduct(finalGroup) {
       section.classList.add("d-grid");      
       section.classList.add("text-center");
       section.classList.add("border-warning")
-      section.classList.add("mb-5")
-      section.classList.add("pb-5")
+      section.classList.add("mb-4")
       var gap = document.createElement('div');
       gap.setAttribute('class', product.type);
       gap.classList.add("col-1")
-      gap.classList.add("row")
       var bouton = document.createElement('button');
       bouton.setAttribute('class', product.type);
       bouton.classList.add("btn")
       bouton.classList.add("btn-outline-dark")
       bouton.classList.add("btn-lg")
-      bouton.classList.add("align-items-end")
       bouton.textContent = "Acheter"
       var heading = document.createElement('div');
       heading.textContent = product.nom.replace(product.nom.charAt(0), product.nom.charAt(0).toUpperCase());
@@ -147,7 +148,6 @@ function showProduct(finalGroup) {
       image.className = 'card-img-top'; 
       image.src = "images/" + product.image;
       image.alt = product.nom;
-      
       section.appendChild(heading);
       section.appendChild(foot);
       foot.appendChild(para);
@@ -156,6 +156,8 @@ function showProduct(finalGroup) {
       section.appendChild(bouton)  
       main.appendChild(section);
       main.appendChild(gap)
+
+      var nbPanier = document.nav
     });
   }
 }
