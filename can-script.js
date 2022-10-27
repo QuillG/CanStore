@@ -9,20 +9,19 @@ document.forms[0].nutri.addEventListener("change", function() {
 });
 document.forms[0].searchTerm.addEventListener("keypress", function(e) {
   if (e.keyCode === 13) {
+    e.preventDefault()
     addDonnee();
-    e.preventDefault();
-    
   }     
 });
 
 
 // sur le click
-// document.getElementById('btn1').addEventListener(
-//   'click', function (event) {
-//     event.preventDefault();
-//     document.forms.recherche.reset()
-//     addDonnee();
-//   });
+document.getElementById('btn1').addEventListener(
+  'click', function (event) {
+    event.preventDefault();
+    document.forms.recherche.reset()
+    addDonnee();
+  });
 
 
 
@@ -119,23 +118,25 @@ function showProduct(finalGroup) {
   }
   else {
     finalGroup.forEach(product => {
+      var cadre = document.createElement('div');
+      cadre.setAttribute('class', "cadre");
+      // cadre.classList.add('col')
       var section = document.createElement('div');
-      section.setAttribute('class', product.type);
+      section.setAttribute('class', "card");
       section.classList.add("card");
       section.classList.add("d-grid");      
       section.classList.add("text-center");
-      section.classList.add("border-warning")
+      section.classList.add("border-dark")
       section.classList.add("mb-4")
-      var gap = document.createElement('div');
-      gap.setAttribute('class', product.type);
-      gap.classList.add("col-1")
       var bouton = document.createElement('button');
-      bouton.setAttribute('class', product.type);
+      bouton.setAttribute('class', 'button');
       bouton.classList.add("btn")
       bouton.classList.add("btn-outline-dark")
       bouton.classList.add("btn-lg")
       bouton.textContent = "Acheter"
       var heading = document.createElement('div');
+      heading.setAttribute('class', product.type);
+      heading.classList.add("bg-warning");
       heading.textContent = product.nom.replace(product.nom.charAt(0), product.nom.charAt(0).toUpperCase());
       heading.className = 'card-title'; 
       var foot = document.createElement('div');
@@ -154,11 +155,14 @@ function showProduct(finalGroup) {
       foot.appendChild(nutri);
       section.appendChild(image);
       section.appendChild(bouton)  
-      main.appendChild(section);
-      main.appendChild(gap)
-
-      var nbPanier = document.nav
+      main.appendChild(cadre);
+      cadre.appendChild(section)
     });
   }
+// function DynamicAutoC()
+// document.forms.recherche.
+
+
+
 }
 
