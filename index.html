@@ -8,42 +8,41 @@
     <link href="https://fonts.googleapis.com/css?family=Cherry+Swash|Raleway" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
-<body>
+<body class="bg-dark">
     <nav class="navbar fixed-top navbar-light bg-warning col-12">
         <div class="container-fluid">
             <!-- Premiere partie de la navbar (titre / logo) -->
-            <div class="container justify-content-start col">   
-            <a class="navbar-brand">
-            <img src="icons/Can.png" class="d-inline-block align-text-top1" width="30" height="30" alt="">
+            <div>   
+            <a class="navbar-brand h5">
+            <img src="icons/Can.png" class="d-inline-block" width="40" height="40" alt="">
             Au jardin de Quentin
             </a>
             
             </div>
-            <!-- deuxieme partie de la navbar (panier) -->
-            <div class="d-grid gap-2 d-flex justify-content-md-end justify-content-start col">
+            <!-- deuxieme partie de la navbar (menu de recherche / panier) -->
+            <div class="d-grid gap-2 d-flex justify-content-md-end justify-content-start">
                 <button id="btn2" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
-                <img src="icons/Loupe.png" class="d-inline-block align-text-center" width="25" height="25" alt=""></button>
-            <a class="navbar-brand justify-content-end" href="#">
-            <div class="gap-2 d-flex">
-                <img src="icons/panier.png"class="d-inline-block align-text-top" width="30" height="30" alt="">
-                <p class="text-danger">6</p>
-            </div>
+                <img src="icons/Loupe.png" class="d-inline-block" width="25" height="25" alt=""></button>
+            <a class="navbar-brand gap-2 d-flex justify-content-end" href="#">
+                <img src="icons/panier.png"  width="30" height="30" alt="">
+                <p class="text-danger" id="count">0</p>
             </a>
             </div> 
         </div> 
     </nav>
+        <!-- div de classe collapse contenant un formulaire qui s'affiche au clic du bouton présent dans la partie deux de la navbar  -->
     <div class="collapse" id="navbarToggleExternalContent">
         <div class="bg-dark p-5 mt-5">
-            <form class="gap-2 d-sm-flex d-md-flex flex-sm-wrap flex-md-nowrap" name="recherche">
-                <select class="form-select m-2" name="categorie">
+            <form class="gap-2 d-sm-flex d-md-flex flex-sm-wrap flex-md-nowrap m-4 m-sm-2 m-md-1" name="recherche">
+                <select class="form-select m-2" name="categorie" id="categorie">  <!--select qui sert au choix de la catégorie -->               
                     <option selected value="0">Categorie: toute</option>
                     <option value="1">Légumes</option>
                     <option value="2">Soupes</option>
                     <option value="3">Viandes</option>
                 </select>
-                <select class="form-select m-2" name="nutri">
-                    <option selected value="0">Nutriscore: tous</option>
+                <select class="form-select m-2" name="nutri" id="nutri">
+                    <option selected value="0">Nutriscore: tous</option> <!--select qui sert au choix du nutriscore --> 
                     <option value="A">A</option>
                     <option value="B">B</option>
                     <option value="C">C</option>
@@ -51,20 +50,20 @@
                     <option value="E">E</option>
                     <option value="F">F</option>
                 </select>
-                <input class="form-control m-2" type="text" id="searchTerm" placeholder="Rechercher vos boites!" list="listeValeurs" name="searchTerm">
+                <input class="form-control m-2" type="text" id="searchTerm" placeholder="Rechercher vos boites!" list="listeValeurs" name="searchTerm"> <!--input avec autocomplession  --> 
                 <datalist id="listeValeurs">
                 </datalist>               
-                <button class="btn btn-outline-warning" id="btn1">Sup</button>       
+                <button class="btn btn-outline-warning" id="btn1">Sup</button> <!--bouton de reinitialisation du formulaire -->        
     </form>
         </div>
       </div>
-    <div class="d-flex flex-column mb-5 mb-md-3"></div>
-    <div class="p-3 p-md-3"></div>
-    <div class="container mt-5">
-    <main class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
+    <div class="p-5 p-md-4"></div> <!--div qui sert a l'espacement entre le haut de la page et les cards --> 
+    <div class="container mt-5"> <!--container comportant le main --> 
+    <main class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row text-white h3 m-3"> <!--main en row qui adapte le nombre de case affiché en rapport avec la taille de la page , le text white en h1 sert à afficher aucun resultat --> 
 
     </main>
 </div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="can-script.js"></script>

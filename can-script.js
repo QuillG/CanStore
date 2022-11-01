@@ -1,12 +1,15 @@
 //premier affichage
 addDonnee();
 
+//Fonction onchange pour le select categorie
 document.forms[0].categorie.addEventListener("change", function() {
   addDonnee();
 });
+//Fonction onchange pour le select nutri
 document.forms[0].nutri.addEventListener("change", function() {
     addDonnee();
 });
+//Fonction qui change le contenu afficher apres avoir appuyer sur entrer 
 document.forms[0].searchTerm.addEventListener("keypress", function(e) {
   if (e.keyCode === 13) {
     e.preventDefault()
@@ -39,6 +42,7 @@ function addDonnee() {
   });
 }
 
+//Autocomplession de l'input searchTerm
 document.getElementById('searchTerm').addEventListener("keyup", function(event){autocompleteMatch(event)});
 
 function autocompleteMatch(event) {
@@ -73,13 +77,12 @@ let terms = data.filter(term => term.nom.match(reg));//recup des termes qui matc
 }
   }
 
-//triage
+//triage + ajout d'un randomizer avant le push dans finalgroup
 function triage(products) {
   var valeur = { 0: "tous", 1: "legumes", 2: "soupe", 3: "viande" }
   var type = valeur[document.forms[0].categorie.value];
   var nutri = document.forms[0].nutri.value;
   var lowerCaseSearchTerm = document.querySelector('#searchTerm').value.trim().toLowerCase();
-
   var finalGroup = [];
   var i, j, tmp;
     for (i = products.length - 1; i > 0; i--) {
@@ -97,8 +100,9 @@ function triage(products) {
       }
     }
 });
-
+  
   showProduct(finalGroup);
+  DynamicAutoC(finalGroup);  
 }
 
 
@@ -118,32 +122,29 @@ function showProduct(finalGroup) {
   }
   else {
     finalGroup.forEach(product => {
-      var cadre = document.createElement('div');
+      var cadre = document.createElement('div');//creation d'une div qui englobe la carde (sert au espacement)
       cadre.setAttribute('class', "cadre");
-      // cadre.classList.add('col')
       var section = document.createElement('div');
       section.setAttribute('class', "card");
-      section.classList.add("card");
-      section.classList.add("d-grid");      
-      section.classList.add("text-center");
-      section.classList.add("border-dark")
-      section.classList.add("mb-4")
-      var bouton = document.createElement('button');
+      section.classList.add("card","text-center","border-warning","text-warning","bg-dark","h6","mb-4"); //ajout de style bootstrap dans les cards en avec les d'elements dans class    
+      var bouton = document.createElement('button');//ajout d'un bouton acheter sur chaque card + onclick pour un compteur sur le panier
       bouton.setAttribute('class', 'button');
-      bouton.classList.add("btn")
-      bouton.classList.add("btn-outline-dark")
-      bouton.classList.add("btn-lg")
+      bouton.setAttribute("onclick", "ajouterPanier()");
+      bouton.classList.add("btn","btn-dark","btn-outline-warning","btn-lg")
       bouton.textContent = "Acheter"
       var heading = document.createElement('div');
       heading.setAttribute('class', product.type);
-      heading.classList.add("bg-warning");
       heading.textContent = product.nom.replace(product.nom.charAt(0), product.nom.charAt(0).toUpperCase());
       heading.className = 'card-title'; 
       var foot = document.createElement('div');
       foot.className = 'card-footer text-muted'; 
       var para = document.createElement('p');
-      para.textContent = product.prix.toFixed(2) +"€";
+      para.setAttribute('class', 'para')
+      para.classList.add("text-danger")//ajout du prix en rouge
+      para.textContent = "Prix : " + product.prix.toFixed(2) +"€";
       var nutri = document.createElement('span');
+      nutri.setAttribute('class', 'nutri')
+      nutri.classList.add("text-white","h6")//ajout du nutri en blanc
       nutri.textContent = "Nutriscore : " + product.nutriscore;
       var image = document.createElement('img');
       image.className = 'card-img-top'; 
@@ -157,12 +158,42 @@ function showProduct(finalGroup) {
       section.appendChild(bouton)  
       main.appendChild(cadre);
       cadre.appendChild(section)
-    });
+     });
   }
-// function DynamicAutoC()
-// document.forms.recherche.
-
-
-
 }
+//Fonction simple qui ajoute 1 elements au panier à chaque clic
+var nbProduits = 0
+function ajouterPanier(){
+  var nombre = document.getElementById('count')
+  nbProduits +=1
+  nombre.textContent = (nbProduits);
+}
+
+// en dessous se trouve mon debut d'autocompletion dynamique qui fonctionne en petite partie mais qui a deux probleme important :/
+// function DynamicAutoC(finalGroup) {
+
+//   var selectType = document.getElementById('categorie');
+//   while (selectType.options.length > 1) {
+//     selectType.remove(1);
+//   }
+//     finalGroup.forEach(product => {
+//       var valeur = { 1: "legumes", 2: "soupe", 3: "viande" }
+//       var type = valeur[product.type];
+//       var opt = document.createElement('option')
+//       var opttxt = document.createTextNode(product.type);
+//       opt.appendChild(opttxt)
+//       opt.setAttribute('value', type);
+//       opt.value = valeur;
+//       selectType.add(opt, null);
+//       })
+      
+  
+// }
+
+
+
+
+
+
+
 
