@@ -17,6 +17,10 @@ document.forms[0].searchTerm.addEventListener("keypress", function(e) {
   }     
 });
 
+document.forms[0].searchTerm.addEventListener("change", function() {
+  addDonnee();
+});
+
 
 // sur le click
 document.getElementById('btn1').addEventListener(
